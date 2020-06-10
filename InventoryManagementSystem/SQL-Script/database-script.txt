@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS inventory_management_systemdb;
+USE inventory_management_systemdb;
+
+DROP TABLE IF EXISTS `ims_customer`;
+CREATE TABLE `ims_customer` (
+  `customer_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `customer_firstName` varchar(255) NOT NULL,
+  `customer_lastName` varchar(255) NOT NULL,
+  `customer_address` varchar(255) NOT NULL,
+  `customer_Email` varchar(45) NOT NULL,
+  `customer_mobileNumber` varchar(45) NOT NULL,
+  `customer_status` varchar(45) NOT NULL,
+  `customer_addedDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

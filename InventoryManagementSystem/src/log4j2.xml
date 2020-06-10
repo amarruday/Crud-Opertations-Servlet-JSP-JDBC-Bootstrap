@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
+    </Console>
+  </Appenders>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="[%-5p] - %d{yyyy-MM-dd [HH:mm:ss,SSS]} - %c{1}.%M (%L) - %m%n"/>
+    </Console>
+  </Appenders>
+  <Appenders>
+    <RollingFile name="ROLLINGFILE" fileName="/home/admin/amar/tomcatlogs/ims.log" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz" append="false">
+      <PatternLayout>
+        <pattern>[%-5p]: %d{yyyy-MM-dd HH:mm:ss} - %c{1}.%M (%L) - %m%n</pattern>
+      </PatternLayout>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="10 MB" />
+      </Policies>
+      <DefaultRolloverStrategy max="3"/>
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <!-- <Logger name="com.opensymphony.xwork2" level="debug"/>
+    <Logger name="org.apache.struts2" level="debug"/> -->
+    <Logger name="com.opensymphony.xwork2" level="info"/>
+    <Logger name="com.obeliskinfosystems" level="info"/>
+    <Root level="info">
+      <AppenderRef ref="ROLLINGFILE"/>
+    </Root>
+  </Loggers>
+</Configuration>
